@@ -1,8 +1,8 @@
 const request = require('supertest');
-const app = require('../index'); // Substitua pelo caminho real para o seu arquivo index.js
-const connection = require('../database/connection'); // Substitua pelo caminho real para o seu arquivo connection.js
+const app = require('../index'); // Replace with the actual path to your index.js file
+const connection = require('../database/connection'); // Replace with actual path to your connection.js file
 
-describe('Testando a aplicação', () => {
+describe('Testing the application', () => {
   beforeAll(async () => {
     await connection.authenticate();
   });
@@ -11,26 +11,26 @@ describe('Testando a aplicação', () => {
     await connection.close();
   });
 
-  it('deve renderizar a página principal', async () => {
+  it('should render the main page', async () => {
     const response = await request(app).get('/');
     expect(response.status).toBe(200);
     expect(response.text).toContain('Search for products');
   });
 
-  it('deve retornar resultados válidos após a busca', async () => {
+  it('should render the main page', async () => {
     const response = await request(app)
       .post('/search')
-      .send({ product: 'produto-simulado', quantity: 10 });
+      .send({ product: 'simulated-product', quantity: 10 });
     expect(response.status).toBe(200);
-    // Adicione mais expect conforme necessário
+    // Add more expect as needed
   });
 
-  it('deve lidar com busca de produto inexistente', async () => {
+  it('must deal with non-existent product search', async () => {
     const response = await request(app)
       .post('/search')
-      .send({ product: 'produto-inexistente', quantity: 10 });
+      .send({ product: 'product-non-existent', quantity: 10 });
     expect(response.status).toBe(200);
-    // Adicione mais expect conforme necessário
+    // Add more expect as needed
   });
 });
 
