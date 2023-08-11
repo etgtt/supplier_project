@@ -43,7 +43,9 @@ function calculateCheapestSupplier(products, quantity) {
 
         if (quantity > discountQuantity && supplier === 'A') {
             adjustedDiscount = discount;
-        } else if (quantity > discountQuantity && supplier === 'B') {
+        } 
+        
+        else if (quantity > discountQuantity && supplier === 'B') {
             adjustedDiscount = discount;
         } else if (quantity > discountQuantity && supplier === 'C') {
             adjustedDiscount = discount;
