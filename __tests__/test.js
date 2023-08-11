@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../index'); // Replace with the actual path to your index.js file
-const connection = require('../database/connection'); // Replace with actual path to your connection.js file
+const connection = require('../database/connection'); // Replaces with actual path to your connection.js file
 
 describe('Testing the application', () => {
   beforeAll(async () => {
